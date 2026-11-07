@@ -87,6 +87,18 @@ namespace Aws
                 m_allocator);
         }
 
+        std::shared_ptr<SubscribeToIoTCoreConnectionStatusOperation> GreengrassCoreIpcClient::
+            NewSubscribeToIoTCoreConnectionStatus(
+                std::shared_ptr<SubscribeToIoTCoreConnectionStatusStreamHandler> streamHandler) noexcept
+        {
+            return Aws::Crt::MakeShared<SubscribeToIoTCoreConnectionStatusOperation>(
+                m_allocator,
+                *m_connection,
+                std::move(streamHandler),
+                m_greengrassCoreIpcServiceModel.m_subscribeToIoTCoreConnectionStatusOperationContext,
+                m_allocator);
+        }
+
         std::shared_ptr<ResumeComponentOperation> GreengrassCoreIpcClient::NewResumeComponent() noexcept
         {
             auto operation = Aws::Crt::MakeShared<ResumeComponentOperation>(

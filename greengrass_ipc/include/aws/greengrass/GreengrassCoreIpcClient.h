@@ -49,6 +49,12 @@ namespace Aws
                 std::shared_ptr<SubscribeToIoTCoreStreamHandler> streamHandler) noexcept;
 
             /**
+             * Subscribe to the connection status of the IoT Core MQTT connection.
+             */
+            std::shared_ptr<SubscribeToIoTCoreConnectionStatusOperation> NewSubscribeToIoTCoreConnectionStatus(
+                std::shared_ptr<SubscribeToIoTCoreConnectionStatusStreamHandler> streamHandler) noexcept;
+
+            /**
              * Resume a paused component
              */
             std::shared_ptr<ResumeComponentOperation> NewResumeComponent() noexcept;
